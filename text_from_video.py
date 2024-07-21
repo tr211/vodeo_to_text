@@ -1,4 +1,5 @@
 import os
+from moviepy.editor import VideoFileClip
 import moviepy.editor as mp
 import speech_recognition as sr
 
@@ -26,11 +27,16 @@ def converter_mp4(video_file_dir: str, video_file_name: str, language: str):
     try:
         text = recognizer.recognize_google(data, language=language)
         with open('text_from_video.txt', 'w', encoding='utf-8') as text_fi:
+            # text_from_video = text_fi.write(text)
             text_fi.write(text)
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
     except sr.RequestError as e:
         print(f"Could not request results from Google Speech Recognition service; {e}")
+        
+        # return text_from_video
+
+
 
 if __name__ == '__main__':
     # Specify the language code (e.g., 'ru-RU' for Russian, 'es-ES' for Spanish, etc.)

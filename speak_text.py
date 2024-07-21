@@ -1,6 +1,4 @@
 import os
-import pyttsx3 
-# from translate_text import translated_data
 from gtts import gTTS
 
 video_file_name = 'translated_text.txt'
@@ -12,15 +10,3 @@ for i in text_data:
     text_data = gTTS(text=i, slow=False)
     text_data.save('translated_text.mp3') 
 
-
-
-# def SpeakText(command):
-#     engine = pyttsx3.init()
-#     engine.say(command) 
-#     engine.runAndWait()
-
-# with open('translated_text.txt', 'r') as text_data:
-#     text_data.read()
-# text_data = open(abs_file_path, 'r')
-# for i in text_data:
-#     SpeakText(i)
